@@ -1414,7 +1414,11 @@ typedef struct
     }
 }
 
+#ifdef __IPHONE_9_0
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+#else
 - (NSUInteger)supportedInterfaceOrientations
+#endif
 {
     if ([self hasLeftViewController] && [self hasRightViewController])
     {
