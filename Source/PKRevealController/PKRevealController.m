@@ -591,7 +591,9 @@ typedef struct
     self.revealPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(didRecognizePanGesture:)];
     
+#if !TARGET_OS_TV
     self.revealPanGestureRecognizer.maximumNumberOfTouches = 1;
+#endif
     
     self.revealResetTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                    action:@selector(didRecognizeTapGesture:)];
