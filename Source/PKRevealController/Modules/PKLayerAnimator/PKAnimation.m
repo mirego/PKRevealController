@@ -28,6 +28,10 @@
 #import "NSObject+PKBlocks.h"
 #import "PKLog.h"
 
+@interface PKAnimation () <CAAnimationDelegate>
+
+@end
+
 @implementation PKAnimation
 
 @synthesize layer = _layer;
@@ -117,6 +121,7 @@
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag
 {
     self.animating = NO;
+    self.delegate = nil;
     
     [self pk_performBlock:^
     {

@@ -27,7 +27,7 @@
 #import "PKSequentialAnimation.h"
 #import "NSObject+PKBlocks.h"
 
-@interface PKSequentialAnimation ()
+@interface PKSequentialAnimation () <CAAnimationDelegate>
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSArray *animations;
@@ -191,6 +191,9 @@
 {
     NSInteger currentIndex = anim.pk_identifier;
     NSInteger lastAnimationIndex = [self.animations count] - 1;
+    
+    PKAnimation *currentAnimation = self.animations[currentIndex];
+    currentAnimation.delegate = nil;
     
     if (flag && currentIndex < lastAnimationIndex)
     {
