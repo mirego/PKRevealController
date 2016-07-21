@@ -10,5 +10,4 @@ Pod::Spec.new do |spec|
     spec.source_files = 'Source/PKRevealController/*.{h,m}', 'Source/PKRevealController/Categories/**/*.{h,m}', 'Source/PKRevealController/Classes/**/*.{h,m}', 'Source/PKRevealController/Modules/**/*.{h,m}'
     spec.framework = 'UIKit', 'QuartzCore', 'Foundation'
     spec.ios.deployment_target = '6.0'
-    spec.tvos.deployment_target = '9.0'
 end
