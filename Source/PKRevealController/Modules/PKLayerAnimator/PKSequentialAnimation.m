@@ -27,11 +27,7 @@
 #import "PKSequentialAnimation.h"
 #import "NSObject+PKBlocks.h"
 
-#ifdef __IPHONE_10_0
-@interface PKSequentialAnimation () <CAAnimationDelegate>
-#else
 @interface PKSequentialAnimation ()
-#endif
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSArray *animations;
