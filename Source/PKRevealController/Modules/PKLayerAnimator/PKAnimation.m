@@ -28,7 +28,11 @@
 #import "NSObject+PKBlocks.h"
 #import "PKLog.h"
 
+#ifdef __IPHONE_10_0
+@interface PKAnimation () <CAAnimationDelegate>
+#else
 @interface PKAnimation ()
+#endif
 
 @end
 

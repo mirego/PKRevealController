@@ -31,7 +31,11 @@
 
 static NSString *kShadowTransitionAnimationKey = @"shadowTransitionAnimation";
 
+#ifdef __IPHONE_10_0
+@interface PKRevealControllerView () <CAAnimationDelegate>
+#else
 @interface PKRevealControllerView ()
+#endif
 
 @end
 
