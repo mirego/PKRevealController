@@ -1300,7 +1300,6 @@ typedef struct
         CGPoint toPoint = [self centerPointForState:toState];
         
         self.frontView.layer.position = toPoint;
-        [(CALayer *)[self.frontView.layer presentationLayer] setPosition:toPoint];
         
         [self updateRearViewVisibility];
         [self updateTapGestureRecognizerPrecence];
