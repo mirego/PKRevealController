@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 #import "CAAnimation+PKIdentifier.h"
 
-typedef void(^PKAnimationStartBlock)();
+typedef void(^PKAnimationStartBlock)(void);
 typedef void(^PKAnimationCompletionBlock)(BOOL finished);
 
 @protocol PKAnimating <NSObject>

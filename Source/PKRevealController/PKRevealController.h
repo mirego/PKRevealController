@@ -84,14 +84,8 @@ FOUNDATION_EXTERN NSString * const PKRevealControllerRecognizesResetTapOnFrontVi
 /// The controllers current state. **Observable.**
 @property (nonatomic, readonly) PKRevealControllerState state;
 
-/// The view controller type. Deprecated because unnecessary. is -hasLeftViewController and hasRightViewController instead.
-@property (nonatomic, readonly) PKRevealControllerType type __deprecated;
-
 /// Returns YES if either the left or right view controller are revealed to their max width.
 @property (nonatomic, readonly) BOOL isPresentationModeActive;
-
-/// Contains the controllers configuration. Deprecated in favour of direct property manipulation.
-@property (nonatomic, readonly) NSDictionary *options __deprecated;
 
 /// The controllers automatic reveal animation duration. Defaults to 0.185.
 @property (nonatomic, assign, readwrite) CGFloat animationDuration;
@@ -199,19 +193,6 @@ FOUNDATION_EXTERN NSString * const PKRevealControllerRecognizesResetTapOnFrontVi
 - (void)setFrontViewController:(UIViewController *)frontViewController;
 
 /**
- Exchanges the current front view controller for a new one.
- 
- Deprecated because unnecessary. Functionality can be reproduced by calling showViewController:animated:completion.
-
- @param frontViewController The new front view controller.
- @param focus Whether the front view controller's view animates back to its center position after it was set.
- @param completion Executed on the main thread after the show animation is completed.
- */
-- (void)setFrontViewController:(UIViewController *)frontViewController
-              focusAfterChange:(BOOL)focus
-                    completion:(PKDefaultCompletionHandler)completion __deprecated;
-
-/**
  Exchanges the current left view controller for a new one.
  
  @param leftViewController Thew new left view controller.
@@ -277,37 +258,5 @@ FOUNDATION_EXTERN NSString * const PKRevealControllerRecognizesResetTapOnFrontVi
  @param state The state the controller did change to.
  */
 - (void)revealController:(PKRevealController *)revealController didChangeToState:(PKRevealControllerState)state;
-
-@end
-
-#pragma mark - Deprecated as of 2.0.1
-
-@interface PKRevealController (Deprecated)
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                     leftViewController:(UIViewController *)leftViewController
-                                    rightViewController:(UIViewController *)rightViewController
-                                                options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:leftViewController:rightViewController: instead. Set options using the options property.")));
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                     leftViewController:(UIViewController *)leftViewController
-                                                options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:leftViewController: instead. Set options using the options property.")));
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                    rightViewController:(UIViewController *)rightViewController
-                                                options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:rightViewController: instead. Set options using the options property.")));
-
-- (instancetype)initWithFrontViewController:(UIViewController *)frontViewController
-                         leftViewController:(UIViewController *)leftViewController
-                        rightViewController:(UIViewController *)rightViewController
-                                    options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:leftViewController:rightViewController: instead. Set options using the options property.")));
-
-- (instancetype)initWithFrontViewController:(UIViewController *)frontViewController
-                         leftViewController:(UIViewController *)leftViewController
-                                    options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:leftViewController: instead. Set options using the options property.")));
-
-- (instancetype)initWithFrontViewController:(UIViewController *)frontViewController
-                        rightViewController:(UIViewController *)rightViewController
-                                    options:(NSDictionary *)options __attribute__((deprecated("Use +revealControllerWithFrontViewController:rightViewController: instead. Set options using the options property.")));
 
 @end

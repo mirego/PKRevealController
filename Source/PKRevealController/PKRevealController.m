@@ -214,36 +214,6 @@ typedef struct
     
     return self;
 }
-#pragma mark - Deprecated Initialization
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                     leftViewController:(UIViewController *)leftViewController
-                                                options:(NSDictionary *)options
-{
-    return [[[self class] alloc] initWithFrontViewController:frontViewController
-                                          leftViewController:leftViewController
-                                                     options:options];
-}
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                    rightViewController:(UIViewController *)rightViewController
-                                                options:(NSDictionary *)options
-{
-    return [[[self class] alloc] initWithFrontViewController:frontViewController
-                                         rightViewController:rightViewController
-                                                     options:options];
-}
-
-+ (instancetype)revealControllerWithFrontViewController:(UIViewController *)frontViewController
-                                     leftViewController:(UIViewController *)leftViewController
-                                    rightViewController:(UIViewController *)rightViewController
-                                                options:(NSDictionary *)options
-{
-    return [[[self class] alloc] initWithFrontViewController:frontViewController
-                                          leftViewController:leftViewController
-                                         rightViewController:rightViewController
-                                                     options:options];
-}
 
 #pragma mark - Actions
 
@@ -1439,6 +1409,8 @@ typedef struct
     }
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-implementations"
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     if (_frontViewInteraction.isInteracting)
@@ -1466,6 +1438,7 @@ typedef struct
         return [self.frontViewController shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
     }
 }
+#pragma GCC diagnostic pop
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                          duration:(NSTimeInterval)duration
